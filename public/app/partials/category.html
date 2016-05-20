@@ -1,0 +1,158 @@
+<style type="text/css">
+    .menu {
+        background-color: rgba(52, 184, 192, 1) !important;
+    }
+</style>
+
+<div class="progress" ng-show="!feteched">
+    <div class="indeterminate red"></div>
+</div>
+
+<div layout="row">
+    <div layout="row" class="category-bg center">
+        <!--<h2>{{ categoryName }}</h2>-->
+        <div class="wrapper">
+            <div class="clip-text clip-text_fourteen clip-text--cover">{{ categoryName }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="section" ng-show="feteched">
+
+    <div class="product-container">
+        <div class="row">
+
+        </div>
+
+        <div class="row">
+            <div class="col l3 m6 s12">
+                <h4 class="header capital center">Filters</h4>
+                <div class="card padding_30">
+                    <div class="row" style="margin-bottom: 0;">
+                        <h5 class="left">Sub-Category</h5>
+                        <a href="#"><i class="material-icons right" style="margin: 0.82rem 0 0.656rem 0;">clear</i></a>
+                    </div>
+                    <hr style="margin: 0;"/>
+                    <p class="clearfix">
+                        <input type="checkbox" class="filled-in" id="test5"/>
+                        <label for="test5">Short Dress (23) </label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" id="test6"/>
+                        <label for="test6">Maxi Dress (21)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" id="test7"/>
+                        <label for="test7">Some Dress (26)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" id="test8"/>
+                        <label for="test8">Random Dress (2)</label>
+                    </p>
+
+                </div>
+
+                <div class="card padding_30">
+                    <div class="row" style="margin-bottom: 0;">
+                        <h5 class="left">Price Range</h5>
+                        <a href="#"><i class="material-icons right" style="margin: 0.82rem 0 0.656rem 0;">clear</i></a>
+                    </div>
+                    <hr style="margin: 0;"/>
+                    <div id="test0"></div>
+                </div>
+
+                <div class="card padding_30">
+                    <div class="row" style="margin-bottom: 0;">
+                        <h5 class="left">Sizes</h5>
+                        <a href="#"><i class="material-icons right" style="margin: 0.82rem 0 0.656rem 0;">clear</i></a>
+                    </div>
+                    <hr style="margin: 0;"/>
+                    <div class="size-container">
+                        <ul class="straight-ul">
+                            <li><a href="#"><span>XS</span></a></li>
+                            <li><a href="#"><span>S</span></a></li>
+                            <li><a href="#"><span>M</span></a></li>
+                            <li><a href="#"><span>L</span></a></li>
+                            <li><a href="#"><span>XL</span></a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card padding_30">
+                    <div class="row" style="margin-bottom: 0;">
+                        <h5 class="left">Colours</h5>
+                        <a href="#"><i class="material-icons right" style="margin: 0.82rem 0 0.656rem 0;">clear</i></a>
+                    </div>
+                    <hr style="margin: 0;"/>
+                    <div class="colour-container">
+                        <ul class="straight-ul">
+                            <li><a href="#"><span></span></a></li>
+                            <li><a href="#"><span></span></a></li>
+                            <li><a href="#"><span></span></a></li>
+                            <li><a href="#"><span></span></a></li>
+                            <li><a href="#"><span></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col l9 m6 s12 ">
+                <h4 class="header capital center">Products</h4>
+                <div ng-repeat="product in products">
+                    <div class="col l4 m6 s12">
+                        <div class="card hoverable waves-effect">
+
+
+                            <div class="card-image" id="product-image">
+                                <div class="stickers">
+                                    <span class="stickers top-left">Sale</span>
+                                    <span class="stickers top-right">New</span>
+                                    <span class="stickers bottom-left">Best Selling</span>
+                                    <span class="stickers bottom-right">Featured</span>
+                                </div>
+                                <a ng-click="showAdvanced($event)" class="view-icon"><i
+                                        class="material-icons product-icon">visibility</i></a>
+                                <img ng-src="{{ product.featured_src}}" class="productCard-img">
+                                <span class="overlay red"></span>
+                                <span class="card-title white-text capital small">{{ trimText(23, product.title) }}</span>
+                            </div>
+
+
+                            <div class="card-action">
+
+                                <a><span class="bold big uppercase">Rs.{{ product.regular_price}}</span></a>
+
+                                <a class="btn-floating right waves-effect waves-light"
+                                   ui-sref="product({ name : product.id })"><i
+                                        class="material-icons">add_shopping_cart</i>
+                                </a>
+
+                            </div>
+                        </div>
+                        <!--<div class="productCard-head">-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    var slider = document.getElementById('test0');
+    noUiSlider.create(slider, {
+        start: [20, 80],
+        connect: true,
+        step: 1,
+        range: {
+            'min': 0,
+            'max': 100
+        },
+        format: wNumb({
+            decimals: 0
+        })
+    });
+</script>

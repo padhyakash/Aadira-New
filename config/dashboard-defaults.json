@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/bk",
+      "appId": "123456789",
+      "masterKey": "987654321",
+      "appName": "Aadira"
+    }
+  ]
+}

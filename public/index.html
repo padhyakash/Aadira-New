@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ng-app="main">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<link rel="stylesheet" type="text/css" href="components/angular-material/angular-material.min.css">-->
+    <link rel="stylesheet" href="components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="components/normalize-css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="components/Materialize/extras/noUiSlider/nouislider.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt%3Aregular%2C700%2C400%2C600%2C300%7COpen+Sans%3Aregular%2C700%2C800%7CSource+Sans+Pro%3Aregular%7CDosis%3A400&ver=acf7724f24d7b1e48c01befd7a3cf7b6'
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<body>
+<div ng-controller="mainCtrl">
+    <div ng-show="fetched">
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo waves-effect waves-light"><img src="images/white.png"></a>
+
+                    <div class="search-wrap hide-on-med-and-down">
+                        <input class="normal search-box" placeholder="Search for a product" type="text">
+                    </div>
+                    <ul class="right hide-on-med-and-down">
+
+                        <li><a class="waves-effect waves-light"><i class="material-icons">add_shopping_cart</i></a></li>
+                        <li><a class="waves-effect waves-light"><i class="material-icons favorite-icon">favorite</i></a>
+                        </li>
+                        <li><a class="waves-effect waves-light"><i class="material-icons md-light">more_vert</i></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="row sub-head">
+                    <ul class="right hide-on-med-and-down">
+                        <li ng-repeat="category in parentCategories">
+                            <a class="btn nav-btn btn-flat waves-effect waves-light white-text"
+                               ng-class="categoryName == category.slug ? 'active' : '' "
+                               ui-sref="name({ name : category.slug })">{{
+                                category.name }}</a>
+                            <script type="text/javascript">
+                                console.log(categoryName == category.slug);
+                            </script>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <main>
+            <div ui-view></div>
+        </main>
+
+    </div>
+
+    <div layout="row" layout-align="center center" ng-hide="fetched">
+        <div class="loader">
+            <div class="square square--main">
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+                <div class="square square--mini"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Dependency files-->
+<script type="text/javascript" src="components/angular/angular.min.js"></script>
+<script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="components/angular-aria/angular-aria.min.js"></script>
+<!--<script type="text/javascript" src="components/angular-material/angular-material.min.js"></script>-->
+
+
+<!--Libraries-->
+<script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="components/Materialize/dist/js/materialize.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.parallax.min.js"></script>
+<script type="text/javascript" src="components/Materialize/extras/noUiSlider/nouislider.min.js"></script>
+<script type="text/javascript" src="javascripts/parallax.min.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+
+
+<!--Project files-->
+<script type="text/javascript" src="app/main.js"></script>
+<script type="text/javascript" src="app/homeCtrl.js"></script>
+<script type="text/javascript" src="app/productsService.js"></script>
+</body>
+</html>
